@@ -1,0 +1,2 @@
+# Unipegaso_Project_Work_Caiazzo_Fabio_Privacy_sicurezza_aziendale_fattore_rischio
+Project work di Caiazzo Fabio, studente Unipegaso 031
