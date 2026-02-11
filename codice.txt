@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy e Sicurezza Aziendale: Calcolo del fattore di rischio</title>
+  <meta name="description" content="Pagina web per calcolo e consultazione del fattore di rischio." />
+  <style>
+    :root {
+      /*: Palette colori */
+      --bg: #FFEE58;
+      --card: #FFFFE0; /* Giallo più chiaro per le card */
+      --text: #003366;
+      --muted: #4A6FA5; /* Blu medio per testo secondario */
+      --primary: #15418C; /* Blu scuro per link */
+      --primary-contrast: white; /* Testo del pulsante */
+      --focus: #FF0000; /* Focus rosso per contrasto(usando tab) */
+    }
+
+    /* Reset di base e tipografia accessibile */
+    *, *::before, *::after { box-sizing: border-box; }
+    html:focus-within { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      line-height: 1.6;
+      /* Semplice Sfondo */
+      background: var(--bg); 
+      color: var(--text);
+    }
+
+    a { color: var(--primary); }
+    a:focus { outline: none; }
+    a:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 10px; }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    header {
+      max-width: 72rem;
+      margin: 0 auto; padding: 2rem 1rem 0;
+    }
+
+    .wrapper {
+      max-width: 72rem;
+      margin: 0 auto; padding: 2rem 1rem 4rem;
+      display: grid; gap: 1.25rem;
+    }
+
+    .card {
+      /* : Card */
+      background: var(--card);
+      border: 1px solid var(--muted);
+      border-radius: 18px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .title {
+      font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.2rem);
+      margin: 0 0 0.25rem 0;
+      letter-spacing: 0.2px;
+    }
+
+    .lead {
+      color: var(--muted);
+      margin: 0;
+      max-width: 60ch;
+    }
+
+    .download-area {
+      display: grid; gap: 1rem; align-items: start;
+      grid-template-columns: 1fr; /* mobile */
+    }
+
+    @media (min-width: 720px) {
+      .download-area { grid-template-columns: 3fr 2fr; }
+    }
+
+    .doc-meta {
+      background: var(--card);
+      border: 1px solid var(--muted);
+      border-radius: 14px;
+      padding: 1rem;
+      display: grid; gap: 0.35rem;
+    }
+
+    .doc-meta dt { color: var(--muted); font-weight: 600; }
+    .doc-meta dd { margin: 0; }
+
+    .download {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      border: 2px solid transparent;
+      /* : Pulsante adattato */
+      background: var(--primary);
+      color: var(--primary-contrast); 
+      font-weight: 700; text-decoration: none;
+      padding: 0.9rem 1.2rem; border-radius: 12px;
+      transition: transform 120ms ease, box-shadow 120ms ease;
+      width: fit-content;
+    }
+
+    .download:hover { transform: translateY(-1px); box-shadow: 0 12px 24px rgba(0,0,139,0.25); }
+    .download:active { transform: translateY(0); }
+    .download:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+
+    .download small { font-weight: 600; opacity: 0.9; }
+
+    .secondary-link {
+      display: inline-block; margin-top: 0.5rem;
+    }
+
+    /* Riduzione animazioni per chi è sensibile al movimento */
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="sr-only" href="#contenuto">Salta al contenuto principale</a>
+
+  <header role="banner">
+    <h1 class="title">PRIVACY E SICUREZZA AZIENDALE : CALCOLO DEL FATTORE DI RISCHIO</h1>
+    <p class="lead">Project Work di Caiazzo Fabio L-31 0312300230.<br> Pagina costruita con i linguaggi HTML e CSS.</p>
+  </header>
+
+  <main id="contenuto" class="wrapper" role="main">
+    <section class="card" aria-labelledby="sezione-download">
+      <h2 id="sezione-download">DOWNLOAD</h2>
+
+      <div class="download-area" role="group" aria-labelledby="label-azione">
+        <div>
+          <p id="label-azione">Scarica il file come PDF. Il tasto qui sotto avvia direttamente il download nei browser che lo supportano.</p>
+
+          <a
+            class="download"
+            href="calcolo_fattore_di_rischio.pdf"
+            download
+            aria-describedby="meta-file peso-file"
+          >
+            <span aria-hidden="true">⬇️</span>
+            <span>Scarica il PDF</span>
+            <small id="peso-file" aria-label="Dimensione del file">(128&nbsp;KB)</small>
+          </a>
+
+          <p class="secondary-link">
+            Se il download non parte, <a href="calcolo_fattore_di_rischio.pdf" target="_blank" rel="noopener">apri il PDF in una nuova scheda</a>.
+          </p>
+        </div>
+
+        <aside class="doc-meta" aria-labelledby="meta-file">
+          <h3 id="meta-file" style="margin:0 0 0.25rem 0; font-size: 1.05rem;">Dettagli del file</h3>
+          <dl>
+            <dt>Nome</dt>
+            <dd>Calcolo del fattore di rischio</dd>
+            <dt>Tipo</dt>
+            <dd>PDF (Portable Document Format)</dd>
+            <dt>Dimensione</dt>
+            <dd>128 KB</dd>
+            <dt>Ultimo aggiornamento</dt>
+            <dd>28/1/2026</dd>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="qr-title">
+      <h2 id="qr-title">QR Code</h2>
+      <p>Scansiona i QR code con il tuo smartphone: a sinistra per scaricare il PDF, a destra per condividere questa pagina.</p>
+      
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-top: 1rem;">
+        <div id="qrcode" 
+             style="display: inline-block; padding: 1rem; background: white; border: 5px solid var(--card); border-radius: 10px;"
+             role="img" 
+             aria-label="QR Code generato dinamicamente per il download">
+        </div>
+
+        <div id="qrcode-page" 
+             style="display: inline-block; padding: 1rem; background: white; border: 5px solid var(--card); border-radius: 10px;"
+             role="img" 
+             aria-label="QR Code generato dinamicamente per la pagina corrente">
+        </div>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="calcolatore-title">
+      <h2 id="calcolatore-title">Calcola il tuo Fattore di Rischio</h2>
+      <p>Utilizza questo strumento per applicare la formula <strong>R = P × D</strong> (Rischio = Probabilità × Danno). Inserisci i valori delle caselle sottostanti per ottenere il risultato e le relative conseguenze.</p>
+      
+      <div style="margin-top: 1.5rem; display: grid; gap: 1.5rem;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+          
+          <div>
+            <label for="probabilita" style="display: block; font-weight: 700; color: var(--muted); margin-bottom: 0.5rem;">
+              Probabilità (P)
+            </label>
+            <select id="probabilita" style="width: 100%; padding: 0.75rem; border-radius: 10px; border: 2px solid var(--muted); background: white; font-size: 1rem;">
+              <option value="1">1 - Improbabile</option>
+              <option value="2">2 - Poco probabile</option>
+              <option value="3">3 - Probabile</option>
+              <option value="4">4 - Altamente probabile</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="danno" style="display: block; font-weight: 700; color: var(--muted); margin-bottom: 0.5rem;">
+              Danno (D)
+            </label>
+            <select id="danno" style="width: 100%; padding: 0.75rem; border-radius: 10px; border: 2px solid var(--muted); background: white; font-size: 1rem;">
+              <option value="1">1 - Lieve</option>
+              <option value="2">2 - Medio</option>
+              <option value="3">3 - Grave</option>
+              <option value="4">4 - Gravissimo</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="background: var(--bg); border: 2px dashed var(--muted); padding: 1.5rem; border-radius: 14px; text-align: center;">
+          <span style="font-size: 1.1rem; font-weight: 600; display: block; margin-bottom: 0.5rem;">Risultato Rischio (R):</span>
+          <span id="risultato-calc" style="font-size: 2.5rem; font-weight: 800; color: var(--text); line-height: 1;">1</span>
+          <p id="descrizione-rischio" style="margin: 0.5rem 0 0 0; font-weight: 600; opacity: 0.8;">Basso</p>
+        </div>
+      </div>
+
+      <script>
+        (function() {
+          const pSelect = document.getElementById('probabilita');
+          const dSelect = document.getElementById('danno');
+          const resDisplay = document.getElementById('risultato-calc');
+          const descDisplay = document.getElementById('descrizione-rischio');
+
+          function calcolaRischio() {
+            const p = parseInt(pSelect.value);
+            const d = parseInt(dSelect.value);
+            const r = p * d;
+
+            resDisplay.textContent = r;
+
+            //colori e descrizione
+            if (r <= 4) {
+              resDisplay.style.color = '#2E7D32'; // Verde
+              descDisplay.textContent = "Basso - Rischio Accettabile";
+              descDisplay.style.color = '#2E7D32';
+            } else if (r <= 8) {
+              resDisplay.style.color = '#EF6C00'; // Arancio
+              descDisplay.textContent = "Medio - Misure di miglioramento necessarie";
+              descDisplay.style.color = '#EF6C00';
+            } else {
+              resDisplay.style.color = '#C62828'; // Rosso
+              descDisplay.textContent = "Alto - Intervento immediato richiesto";
+              descDisplay.style.color = '#C62828';
+            }
+          }
+
+          pSelect.addEventListener('change', calcolaRischio);
+          dSelect.addEventListener('change', calcolaRischio);
+        })();
+      </script>
+    </section>
+    <section class="card" aria-labelledby="sondaggio-title">
+      <h2 id="sondaggio-title">Lascia il tuo feedback</h2>
+      <p class="lead" style="margin-bottom: 0.75rem;">
+        Compila il breve sondaggio:
+      </p>
+
+      <iframe
+        title="Sondaggio utenti (Microsoft Forms)"
+        src="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAO__dV7M9xUMUhHWUtKSlJXTVhRVDRHMFBFOURHNkRNOS4u&embed=true"
+        width="100%"
+        height="600"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        style="border-radius:10px; border:0;"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen>
+        Caricamento…
+      </iframe>
+
+      <p class="muted" style="margin-top:0.5rem;">
+        Se l'embed non è visibile,
+        <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAO__dV7M9xUMUhHWUtKSlJXTVhRVDRHMFBFOURHNkRNOS4u&embed=true"
+           target="_blank" rel="noopener">
+           apri il sondaggio in una nuova scheda
+        </a>.
+      </p>
+    </section>
+  </main>
+
+  <footer class="wrapper" role="contentinfo">
+    <p class="card" style="margin:0;">© <span id="anno-corrente">2025</span> — Caiazzo Fabio</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      
+      // 1. Gestione Anno Footer
+      const anno = document.getElementById('anno-corrente');
+      if (anno) anno.textContent = new Date().getFullYear();
+
+      // 2. Gestione QR Code Dinamico (PDF)
+      const pulsanteDownload = document.querySelector('.download');
+      
+      if (pulsanteDownload) {
+        const linkPdf = pulsanteDownload.href;
+
+        new QRCode(document.getElementById("qrcode"), {
+          text: linkPdf,
+          width: 180,
+          height: 180,
+          colorDark : "#003366",
+          colorLight : "#ffffff",
+          correctLevel : QRCode.CorrectLevel.H
+        });
+      }
+
+      // 3. Gestione QR Code Dinamico (Pagina Corrente)
+      new QRCode(document.getElementById("qrcode-page"), {
+        text: window.location.href,
+        width: 180,
+        height: 180,
+        colorDark : "#003366",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+      });
+    });
+  </script>
+
+</body>
+</html>
